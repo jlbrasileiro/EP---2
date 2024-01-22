@@ -1,15 +1,16 @@
-def define_posicoes(dados_de_posicionamento):
-    linha = dados_de_posicionamento["linha"]
-    coluna = dados_de_posicionamento["coluna"]
-    orientacao = dados_de_posicionamento["orientacao"]
-    tamanho = dados_de_posicionamento["tamanho"]
-
+def define_posicoes(posicionamento):
+    #definindo linha, coluna, orientaçao e tamanho
+    linha = posicionamento['linha']
+    coluna = posicionamento['coluna']
+    orientacao = posicionamento['orientacao']
+    tamanho = posicionamento['tamanho']
+    #criando lista vazia das posições 
     posicoes = []
-
-    if orientacao == "vertical":
+    #adcionando as sublistas com as posições
+    if orientacao == 'vertical':
         for i in range(linha, linha + tamanho):
             posicoes.append([i, coluna])
-    elif orientacao == "horizontal":
+    elif orientacao == 'horizontal':
         for j in range(coluna, coluna + tamanho):
             posicoes.append([linha, j])
 
