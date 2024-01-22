@@ -1,9 +1,9 @@
-def define_posicoes(posicionamento):
+def define_posicoes(dados_de_posicionamento):
     #definindo linha, coluna, orientaçao e tamanho
-    linha = posicionamento['linha']
-    coluna = posicionamento['coluna']
-    orientacao = posicionamento['orientacao']
-    tamanho = posicionamento['tamanho']
+    linha = dados_de_posicionamento['linha']
+    coluna = dados_de_posicionamento['coluna']
+    orientacao = dados_de_posicionamento['orientacao']
+    tamanho = dados_de_posicionamento['tamanho']
     #criando lista vazia das posições 
     posicoes = []
     #adcionando as sublistas com as posições
@@ -15,3 +15,14 @@ def define_posicoes(posicionamento):
             posicoes.append([linha, j])
 
     return posicoes
+def preenche_frota(dados_de_posicionamento, nome_navio, frota):
+    posicoes = define_posicoes(dados_de_posicionamento)
+
+    navio = {
+        'tipo': nome_navio,
+        'posicoes': posicoes
+    }
+
+    frota.append(navio)
+
+    return frota 
