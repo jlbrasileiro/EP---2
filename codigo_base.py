@@ -1,4 +1,5 @@
 import random
+from funcoes import *
  
 
 # PARA TESTAS O SEU CÓDIGO NA ACADEMIA PYTHON SERÁ NECESSÁRIO COLAR AS FUNÇÕES DESENVOLVIDAS AQUI!!!
