@@ -17,7 +17,7 @@ while True:
 
     cont +=1
     
-    print(posicoes)
+    print(posicoes) 
         
         #posicoes.append(linha[0])
 
