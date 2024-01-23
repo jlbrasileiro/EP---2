@@ -1,29 +1,40 @@
-linha = int(input('X: '))
-coluna = int(input('Y: '))
-orientacao = input('Qual orientacao: ')
-tamanho = int(input('Tamanho do navio: '))
+#Parte de ver a linha e coluna e se tiver na lista diz que ja tem
 
-posicoes = []
-cont = 0
+jogando = True
+lista = []
+while jogando:    
+                   
+            # TODO: Implemente aqui a lógica para perguntar a linha que o jogador deseja atirar
+            validacao_repetida = True
+            while validacao_repetida:
 
-while True:
-    if orientacao == 'horizontal':
-        posicoes[0] = linha
-        posicoes[1] = (coluna + cont) 
+                print('\nEscolha um número de 0 a 9 para sua linha.')
+                linha = int(input('Qual linha deseja atacar: '))
 
-    elif orientacao == 'vertical':
-        posicoes[0] = (linha + cont)
-        posicoes[1] = coluna
+                while linha > 9 or linha < 0:
+                    print('Linha inválida!')
+                    #pergunta de novo
+                    linha = int(input('Qual linha deseja atacar: '))
+                    #if linha in lista:
+                     #       print('oi')
 
-    cont +=1
-    
-    print(posicoes) 
         
-        #posicoes.append(linha[0])
+                # TODO: Implemente aqui a lógica para perguntar a coluna que o jogador deseja atirar
+                print('\nEscolha um número de 0 a 9 para sua coluna.')
+                coluna = int(input('Qual coluna deseja atacar: '))
 
-        #posicoes[0] = linha
-        #posicoes.append(posicoes[0])
-        #posicoes[1] = coluna + cont
-        #posicoes.append(posicoes[1])
-        #cont += 1
-    #print(posicoes)
+                while coluna < 0 or coluna > 9:
+                    print('Coluna inválida!')
+                    #pergunta de novo
+                    coluna = int(input('Qual coluna deseja atacar: '))
+                    
+                if [linha,coluna] in lista:
+                    print('já existe')
+                    validacao_repetida = False
+                
+                else:
+                    validacao_repetida = True  
+                    lista.append([linha,coluna])
+
+
+print('láisa é linda')
