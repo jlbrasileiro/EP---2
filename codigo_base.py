@@ -1,7 +1,6 @@
 import random
- 
 
-# PARA TESTAS O SEU CÓDIGO NA ACADEMIA PYTHON SERÁ NECESSÁRIO COLAR AS FUNÇÕES DESENVOLVIDAS AQUI!!!
+# PARA TESTAR O SEU CÓDIGO NA ACADEMIA PYTHON SERÁ NECESSÁRIO COLAR AS FUNÇÕES DESENVOLVIDAS AQUI!!!
 
 def monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente):
     '''
