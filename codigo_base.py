@@ -80,12 +80,59 @@ frota_oponente = gerando_frota_automaticamente()
 tabuleiro_jogador = posiciona_frota(frota_jogador)
 tabuleiro_oponente = posiciona_frota(frota_oponente)
 jogando = True
+coordenadas_ja_informadas = []
+coordenadas_ja_informadas_oponentes =[]
 while jogando:
 
-    # Imprimindo tabuleiro
+    
     print(monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente))
 
-    # TODO: Implemente aqui a lógica para perguntar a linha que o jogador deseja atirar
-    # TODO: Implemente aqui a lógica para perguntar a coluna que o jogador deseja atirar
-    # TODO: Implemente aqui a lógica para verificar se a linha e coluna não foram escolhidas anteriormente
-    # TODO: Implemente aqui a lógica para verificar se o jogador derrubou todos os navios do oponente
+    validacao_repetida = True
+    while validacao_repetida:
+        
+        linha = int(input('Qual linha deseja atacar?: '))
+        while linha > 9 or linha < 0:
+            print('Linha inválida!')
+            linha = int(input('Qual linha deseja atacar?: '))
+
+        
+        coluna = int(input('Qual coluna deseja atacar: '))
+
+        while coluna < 0 or coluna > 9:
+            print('Coluna inválida!')
+            coluna = int(input('Qual coluna deseja atacar: '))
+
+   
+        if [linha, coluna] in coordenadas_ja_informadas:
+            print(f'A posição linha {linha} e coluna {coluna} já foi informada anteriormente!')
+        else:
+            validacao_repetida = False
+            coordenadas_ja_informadas.append([linha, coluna])
+
+    resultado_jogada = faz_jogada(tabuleiro_oponente, linha, coluna)
+
+    if afundados(frota_oponente, tabuleiro_oponente) == len(frota_oponente):
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        jogando = False  
+
+    
+      
+    if afundados(frota_oponente,tabuleiro_oponente) < len(frota_oponente):
+        linha_oponente = random.randint(0,9)
+        coluna_oponente = random.randint(0,9)
+
+        while [linha_oponente,coluna_oponente] in coordenadas_ja_informadas_oponentes:
+            linha_oponente = random.randint(0,9)
+            coluna_oponente = random.randint(0,9)
+        coordenadas_ja_informadas_oponentes.append([linha_oponente,coluna_oponente])
+
+        jogada_oponente = faz_jogada(tabuleiro_jogador,linha_oponente,coluna_oponente)
+        print(f'Seu oponente está atacando na linha {linha_oponente} e coluna {coluna_oponente}')
+
+
+        if afundados(frota_jogador,tabuleiro_jogador) == len(frota_jogador):
+            print('Xi! O oponente derrubou toda a sua frota =(')
+            jogando = False
+    else:
+        print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        jogando =  False
